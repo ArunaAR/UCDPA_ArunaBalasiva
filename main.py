@@ -212,9 +212,9 @@ print('Accuracy score of Multinomial NB is: ',accuracy_score(y_test,y_pred))
 print('Confusion Matrix of Multinomial NB is: ',confusion_matrix(y_test,y_pred))
 print('Precision score of the Multinomial NB is',precision_score(y_test,y_pred))
 
-# matrix = confusion_matrix(y_test, y_pred)
-# sns.heatmap(matrix, annot = True, cmap='Blues', fmt = 'd')
-#plt.show()
+matrix = confusion_matrix(y_test, y_pred)
+sns.heatmap(matrix, annot = True, cmap='Blues', fmt = 'd')
+plt.show()
 
 print("Accuracy of the model : {0:0.3f}".format(metrics.accuracy_score(y_test, y_pred)))
 

@@ -198,13 +198,15 @@ spamham_data = spamham_data.replace(['ham','spam'],[0, 1])
 print(spamham_data.head(5))
 
 #ML
+#Vectorize to provide accuracy and precision
 vectorizer = TfidfVectorizer(max_features=3000)
 X = vectorizer.fit_transform(spamham_data['final_text'])
 y=spamham_data['catergories'].values
 
-
+#Train test split
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)
 
+#Applying Naives Bayes Classifier Model
 mnb = MultinomialNB()
 mnb.fit(X_train,y_train)
 y_pred=mnb.predict(X_test)
@@ -212,15 +214,15 @@ print('Accuracy score of Multinomial NB is: ',accuracy_score(y_test,y_pred))
 print('Confusion Matrix of Multinomial NB is: ',confusion_matrix(y_test,y_pred))
 print('Precision score of the Multinomial NB is',precision_score(y_test,y_pred))
 
+#Classfication results of Cofusion Matrix
 matrix = confusion_matrix(y_test, y_pred)
 sns.heatmap(matrix, annot = True, cmap='Blues', fmt = 'd')
 plt.show()
 
 print("Accuracy of the model : {0:0.3f}".format(metrics.accuracy_score(y_test, y_pred)))
-
 print(classification_report(y_test, y_pred))
 
-
+# Demo test model prediction
 def test_classifier(sms):
     transformed = vectorizer.transform([sms])
     prediction = mnb.predict(transformed)

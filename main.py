@@ -220,7 +220,6 @@ matrix = confusion_matrix(y_test, y_pred)
 sns.heatmap(matrix, annot = True, cmap='Blues', fmt = 'd')
 plt.show()
 
-print("Accuracy of the model : {0:0.3f}".format(metrics.accuracy_score(y_test, y_pred)))
 print(classification_report(y_test, y_pred))
 
 # Demo test model prediction

@@ -121,7 +121,7 @@ remove_extra_stopwords = ['u', 'im', '2', 'ur', 'ill', '4', 'lor', 'r', 'n', 'da
 spamham_data['removing_extra_stopwords'] = spamham_data['removed_stopwords'].apply(lambda msg: [word for word in msg if word not in remove_extra_stopwords])
 print(spamham_data.head(5))
 
-# Joining Cleaning text and adding new Length to the table
+# Joining Clean text and adding new Length to the table
 def get_final_text(msg):
     final_text=" ".join([word for word in msg])
     return final_text
@@ -137,6 +137,7 @@ print("Original Length:",spamham_data.Length.sum())
 print("Cleaned Length:",spamham_data.clean_length.sum())
 print("Total Words Removed:",(spamham_data.Length.sum()) - (spamham_data.clean_length.sum()))
 
+# Frequency of words in HAM messages
 ham_words = list(spamham_data.loc[spamham_data.catergories == 'ham', 'removing_extra_stopwords'])
 ham_words = list(np.concatenate(ham_words).flat)
 ham_words = Counter(ham_words)
@@ -165,7 +166,7 @@ plt.title("Words in HAM messages")
 plt.xticks(rotation=30)
 plt.show()
 
-
+# Frequency of words in SPAM messages
 spam_words = list(spamham_data.loc[spamham_data.catergories == 'spam', 'removing_extra_stopwords'])
 spam_words = list(np.concatenate(spam_words).flat)
 spam_words = Counter(spam_words)
@@ -198,7 +199,7 @@ spamham_data = spamham_data.replace(['ham','spam'],[0, 1])
 print(spamham_data.head(5))
 
 #ML
-#Vectorize to provide accuracy and precision
+#Text Vectorization
 vectorizer = TfidfVectorizer(max_features=3000)
 X = vectorizer.fit_transform(spamham_data['final_text'])
 y=spamham_data['catergories'].values

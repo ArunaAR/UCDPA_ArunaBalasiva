@@ -12,7 +12,15 @@ The project covers data preprocessing, exploratory analysis, feature extraction,
 
 ---
 
-## 📂 Repository Structure
+<h2>Repository Structure</h2>
+<pre>
+├── Aruna_UCDPA_Report.pdf         # project report
+├── report_preview.png             # Preview of report’s first page
+├── UCDPA_Final_Version1.ipynb     # Notebook with full analysis & visuals
+├── main.py                        # (Optional) script version of analysis
+├── spam.csv                       # SMS dataset (Spam vs. Ham)
+└── README.md                      # This file
+</pre>
 
 
 ---

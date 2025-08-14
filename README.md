@@ -14,7 +14,7 @@ The project covers data preprocessing, exploratory analysis, feature extraction,
 
 <h2>Repository Structure</h2>
 <pre>
-├── Aruna_UCDPA_Report.pdf         # project report
+├── Aruna_UCDPA_Report.pdf         # SPAM & HAM project report
 ├── report_preview.png             # Preview of report’s first page
 ├── UCDPA_Final_Version1.ipynb     # Notebook with full analysis & visuals
 ├── main.py                        # (Optional) script version of analysis
